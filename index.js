@@ -4,7 +4,6 @@ const hostName = "0.0.0.0";
 const app = express();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const serviceAccount = require("./firebase.json");
 const dotenv = require("dotenv");
 const userAuthRoute = require("./route/user-auth");
@@ -30,15 +29,17 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
+
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.use(express.static("./public"));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/userAuth", userAuthRoute);
 app.use("/api/adminAuth", adminAuthRoute);
