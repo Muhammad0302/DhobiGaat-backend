@@ -32,7 +32,7 @@ router.post("/reset__password", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 
@@ -111,7 +111,7 @@ router.post("/resetPass", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 
@@ -225,7 +225,7 @@ router.post("/resetPassword", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 
@@ -255,7 +255,7 @@ router.post("/resetPassword", async (req, res) => {
   //     service: "gmail",
   //     auth: {
   //       user: "mi477048@gmail.com",
-  //       pass: "Samarbagh123456",
+  //       pass: "szdahysparzzxfuy",
   //     },
   //   });
 
@@ -362,7 +362,7 @@ router.post("/passwordReset", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 

@@ -46,7 +46,7 @@ router.post("/ApproveDhobie/:id", async (req, res) => {
         service: "gmail",
         auth: {
           user: "mi477048@gmail.com",
-          pass: "Samarbagh123456",
+          pass: "szdahysparzzxfuy",
         },
       });
 
@@ -83,7 +83,7 @@ router.post("/ApproveDhobie/:id", async (req, res) => {
         service: "gmail",
         auth: {
           user: "mi477048@gmail.com",
-          pass: "Samarbagh123456",
+          pass: "szdahysparzzxfuy",
         },
       });
 
@@ -289,7 +289,7 @@ router.post("/registerSecure", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 

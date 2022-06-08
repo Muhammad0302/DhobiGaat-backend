@@ -105,7 +105,7 @@ router.post("/registerSecure", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 
@@ -175,7 +175,7 @@ let randomNumber1 = 918468;
 //       service: "gmail",
 //       auth: {
 //         user: "mi477048@gmail.com",
-//         pass: "Samarbagh123456",
+//         pass: "szdahysparzzxfuy",
 //       },
 //     });
 
@@ -266,7 +266,7 @@ router.post("/sendEmail", async (req, res) => {
       service: "gmail",
       auth: {
         user: "mi477048@gmail.com",
-        pass: "Samarbagh123456",
+        pass: "szdahysparzzxfuy",
       },
     });
 
