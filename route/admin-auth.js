@@ -10,7 +10,7 @@ var messagebird = require("messagebird")("8Rko0KgjA6dXAX0z9wYvqW3RV");
 let username, email, password, profilePic, randomNumber, address, mobile_no;
 let randomNumber1;
 
-//Render the dhobies for map
+//Render dhobies for map
 router.get("/dhobieForMap", async (req, res) => {
   try {
     // We will use select to return specfic attribute from a query
