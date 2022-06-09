@@ -67,7 +67,7 @@ router.post("/newOrder", async (req, res) => {
       sound: "default",
       title: "Dear " + token.username,
       body: "Check Your inbox, You have place new order",
-      data: { withSome: "data" },
+      data: { badge: 1 },
     });
 
     const message = "Check Your inbox, You have place new order";
