@@ -16,7 +16,7 @@ router.get("/dhobieForMap", async (req, res) => {
     // We will use select to return specfic attribute from a query
     // We need to add a condition that has isService true return only those adminesDhobies
     const listOfDhobies = await adminUser
-      .find()
+      .find({isService:true})
       .select("address cityName latitude longitude username coordinate");
     // console.log(listOfDhobies);
     res.status(200).json(listOfDhobies);
