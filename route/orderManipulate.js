@@ -10,6 +10,34 @@ var messagebird = require("messagebird")("3IrLVHKY91Tg1CX24m1knZeRr");
 const { Expo } = require("expo-server-sdk");
 let expo = new Expo({ accessToken: process.env.EXPO_ACCESS_TOKEN });
 
+
+// Fetch the Order which is register in last years
+
+router.get("/stats", async (req, res) => {
+  const today = new Date();
+  const latYear = today.setFullYear(today.setFullYear() - 1);
+  try {
+    const data = await order.aggregate([
+      {
+        $project: {
+          month: { $month: "$createdAt" },
+          // month: { $year: "$createdAt" },
+        },
+      },
+      {
+        $group: {
+          _id: "$month",
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 //post order in the DB
 
 router.post("/newOrder", async (req, res) => {

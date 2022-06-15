@@ -16,7 +16,7 @@ router.get("/dhobieForMap", async (req, res) => {
     // We will use select to return specfic attribute from a query
     // We need to add a condition that has isService true return only those adminesDhobies
     const listOfDhobies = await adminUser
-      .find({isService:true})
+      .find({ isService: true })
       .select("address cityName latitude longitude username coordinate");
     // console.log(listOfDhobies);
     res.status(200).json(listOfDhobies);
@@ -520,6 +520,32 @@ router.put("/deviceToken/:id", async (req, res) => {
       { new: true }
     );
     res.status(200).json({ result: "device token added" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Fetch the dhobie which is register in last years
+
+router.get("/stats", async (req, res) => {
+  const today = new Date();
+  const latYear = today.setFullYear(today.setFullYear() - 1);
+  try {
+    const data = await adminUser.aggregate([
+      {
+        $project: {
+          month: { $month: "$createdAt" },
+          // month: { $year: "$createdAt" },
+        },
+      },
+      {
+        $group: {
+          _id: "$month",
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }
