@@ -86,8 +86,6 @@ router.put("/tokenPost/:id", async (req, res) => {
   }
 });
 
-
-
 module.exports = router;
 
 // //UPDATE
