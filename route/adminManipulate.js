@@ -4,7 +4,7 @@ const order = require("../models/order");
 const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
 const ObjectId = require("mongodb").ObjectId;
-//GET ALLl dhobies
+//GET ALL dhobies
 
 router.get("/", async (req, res) => {
   try {
