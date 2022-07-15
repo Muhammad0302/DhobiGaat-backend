@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema(
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    mobile_no: { type: Number, required: true },
+    mobile_no: { type: Number },
     profilePic: { type: String, data: Buffer, defaut: "" },
     owner: { type: Boolean, defaut: false },
     userDeviceToken: { type: String, defaut: "" },

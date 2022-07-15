@@ -86,6 +86,54 @@ router.put("/tokenPost/:id", async (req, res) => {
   }
 });
 
+//socila login
+
+router.post("/socialLogin", async (req, res) => {
+  const newUser = new Admin({
+    username: req.body.username,
+    email: req.body.email,
+    profilePic: req.body.profilePic,
+    password: CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.SECRET_KEY
+    ).toString(),
+    owner: req.body.owner,
+  });
+
+  const userExist = await Admin.findOne({ email: req.body.email });
+
+  if (userExist) {
+    console.log(userExist);
+    return res.status(201).json({ Result: "Your are login successfully" });
+  }
+  try {
+    const user = await newUser.save();
+    var addMessage1 = { Result: "Registration success" };
+    res.status(200).json({ Result: "DhobiAdmin register successfully" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// add number to socialLogin
+
+// Add attribute address, mobile_no 
+
+router.put("/updateSocialLogin/:id", async (req, res) => {
+  try {
+    const updatedUser = await Admin.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
 
 // //UPDATE
@@ -101,7 +149,7 @@ module.exports = router;
 //     }
 
 //     try {
-//       const updatedUser = await User.findByIdAndUpdate(
+//       const updatedUser = await Admin.findByIdAndUpdate(
 //         req.params.id,
 //         {
 //           $set: req.body,
