@@ -463,11 +463,11 @@ router.put("/update/:id", async (req, res) => {
         to: pushToken,
         sound: "default",
         title: "Dear " + userData.username,
-        body: "Your order has been accepted, Kindly meet at your doorstep",
+        body: "Your order has been accepted, So meets at your doorstep",
         data: { withSome: "data" },
       });
       const message =
-        "Your order has been accepted, Kindly meet at your doorstep";
+        "Your order has been accepted, So meets at your doorstep";
       const notifications = new Notification({
         user_id,
         message,
@@ -484,7 +484,7 @@ router.put("/update/:id", async (req, res) => {
       });
 
       const message =
-        "Your order has been rejected, kindly place order to somone else";
+        "Your order has been rejected, So place order to somone else";
       const notifications = new Notification({
         user_id,
         message,
