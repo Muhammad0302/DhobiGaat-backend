@@ -94,11 +94,11 @@ router.post("/newOrder", async (req, res) => {
       to: pushToken,
       sound: "default",
       title: "Dear " + token.username,
-      body: "Check Your inbox, You have place new order",
+      body: "You have new order Notification, please check inbox!",
       data: { badge: 1 },
     });
 
-    const message = "Check Your inbox, You have place new order";
+    const message = "You have new order Notification, please check inbox!";
     const notifications = new Notification({
       adminDhobi_id,
       message,
