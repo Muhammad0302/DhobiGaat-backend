@@ -10,7 +10,6 @@ var messagebird = require("messagebird")("3IrLVHKY91Tg1CX24m1knZeRr");
 const { Expo } = require("expo-server-sdk");
 let expo = new Expo({ accessToken: process.env.EXPO_ACCESS_TOKEN });
 
-
 // Fetch the Order which is register in last years
 
 router.get("/stats", async (req, res) => {
@@ -36,7 +35,6 @@ router.get("/stats", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 //post order in the DB
 
@@ -355,6 +353,23 @@ router.get("/totalOrderList/:id", async (req, res) => {
   }
 });
 
+// GET total order dhobie for orderlist
+
+router.get("/totalOrderListDhobi/:id", async (req, res) => {
+  try {
+    const orders = await order
+      .find({
+        admin_id: req.params.id,
+        order_status: "PROCESSING",
+      })
+      .populate("orderRelate");
+
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // You do change this api accordingly...
 
 // GET total pending orders
@@ -466,8 +481,7 @@ router.put("/update/:id", async (req, res) => {
         body: "Your order has been accepted, So meets at your doorstep",
         data: { withSome: "data" },
       });
-      const message =
-        "Your order has been accepted, So meets at your doorstep";
+      const message = "Your order has been accepted, So meets at your doorstep";
       const notifications = new Notification({
         user_id,
         message,
