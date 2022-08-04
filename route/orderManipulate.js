@@ -494,11 +494,11 @@ router.put("/update/:id", async (req, res) => {
         to: pushToken,
         sound: "default",
         title: "Dear " + userData.username,
-        body: "Your order has been delivered, You will in a few minutes",
+        body: "Your order has been delivered, you will recieve in few minutes",
         data: { withSome: "data" },
       });
       const message =
-        "Your order has been delivered, You will in a few minutes";
+        "Your order has been delivered, You will recieve in few minutes";
       const notifications = new Notification({
         user_id,
         message,
