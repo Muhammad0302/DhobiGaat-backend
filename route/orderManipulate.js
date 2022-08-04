@@ -488,6 +488,23 @@ router.put("/update/:id", async (req, res) => {
       });
 
       await notifications.save();
+    } else if (req.body.order_status === "DELIVERED") {
+      //store data in notification table
+      messages.push({
+        to: pushToken,
+        sound: "default",
+        title: "Dear " + userData.username,
+        body: "Your order has been delivered, You will in a few minutes",
+        data: { withSome: "data" },
+      });
+      const message =
+        "Your order has been delivered, You will in a few minutes";
+      const notifications = new Notification({
+        user_id,
+        message,
+      });
+
+      await notifications.save();
     } else {
       messages.push({
         to: pushToken,
